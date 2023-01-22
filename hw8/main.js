@@ -9,11 +9,13 @@ let cityLive = prompt("Введіть ваше місто проживання:"
 switch (cityLive) {
   case null:
     alert("Шкода, що Ви не захотіли ввести своє місто проживання");
+    break;
 }
 const sportFavorite = prompt("Введіть ваш улюбленний спорт:");
 switch (sportFavorite) {
   case null:
     alert("Шкода, що Ви не захотіли ввести свій улюбленний спорт");
+    break;
 }
 const age = 2023 - yearBirth;
 let football;
