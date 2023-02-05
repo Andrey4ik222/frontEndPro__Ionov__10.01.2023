@@ -1,5 +1,6 @@
 // 1. Дано масив з елементами різних типів. Створити функцію яка вираховує середнє арифметичне лише числових елементів даного масиву.
 const array = [1, true, 3, "Nik", 3, "Bob", 14, 5, 6, 9, "Jane", 10];
+
 function average(array) {
   let numberSum = 0;
   let countNumb = 0;
@@ -17,6 +18,7 @@ console.log(averageNumb.toFixed(2));
 const numbX = +prompt("Введіть перше число");
 const sing = prompt("Оберіть дію з числами(+, -, *, /, % або ^ )");
 const numbY = +prompt("Введіть друге число");
+
 function doMath(x, znak, y) {
   let result = 0;
   switch (znak) {
@@ -51,6 +53,7 @@ console.log(doMath(numbX, sing, numbY));
 const arrayLength = +prompt("Введіть довжину овновного масива:");
 const arrayInsideLength = +prompt("Введіть довжину внутрішніх масивів:");
 const arrayMatrix = [];
+
 function arrayFilling(elem, item) {
   for (i = 0; i < elem; i++) {
     arrayMatrix[i] = [];
