@@ -6,5 +6,5 @@ function exponentiation(num, degree) {
   }
 }
 const number = +prompt("Number:");
-const degree = +prompt("Degree:");
+const degree = +prompt("degree:");
 console.log(exponentiation(number, degree));
