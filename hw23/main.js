@@ -12,30 +12,26 @@ const usualPossibilites = {
   turn: function () {
     console.log("I can turn!");
   },
+  door: function () {
+    console.log("I have doors!");
+  },
 };
 
 const specialPossibilite = {
   lamboDoor: function () {
     console.log("I have Lambo doors!");
   },
-  rallyCar: function () {
-    console.log("I have rally car!");
-  },
-  highPrice: function () {
-    console.log("I am the nost expensive car!");
-  },
 };
 
 Car.prototype = usualPossibilites;
+
 const audi = new Car("Audi");
 const bmw = new Car("BMW");
 const mersedes = new Car("Mersedes");
 const bugatti = new Car("Bugatti");
 const lambo = new Car("Lambo");
 
-lambo.special = specialPossibilite.lamboDoor;
-audi.special = specialPossibilite.rallyCar;
-bugatti.special = specialPossibilite.highPrice;
+lambo.door = specialPossibilite;
 
 console.log(audi);
 console.log(bmw);
