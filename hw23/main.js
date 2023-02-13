@@ -2,6 +2,10 @@ function Car(name) {
   this.name = name;
 }
 
+function CarSpecial(name) {
+  this.name = name;
+}
+
 const usualPossibilites = {
   drive: function () {
     console.log("I can drive!");
@@ -18,20 +22,22 @@ const usualPossibilites = {
 };
 
 const specialPossibilite = {
+  drive: usualPossibilites.drive,
+  breake: usualPossibilites.breake,
+  turn: usualPossibilites.turn,
   lamboDoor: function () {
     console.log("I have Lambo doors!");
   },
 };
 
 Car.prototype = usualPossibilites;
+CarSpecial.prototype = specialPossibilite;
 
 const audi = new Car("Audi");
 const bmw = new Car("BMW");
 const mersedes = new Car("Mersedes");
 const bugatti = new Car("Bugatti");
-const lambo = new Car("Lambo");
-
-lambo.door = specialPossibilite;
+const lambo = new CarSpecial("Lambo");
 
 console.log(audi);
 console.log(bmw);
