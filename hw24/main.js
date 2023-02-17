@@ -1,25 +1,28 @@
 // 1. Создать функцию которая будет принимать имя пользователя и время через которое он хочет чтоб его поприветствовали. Время пользователь хочет вводить строкой в разном формате например '10 minutes' , '20 seconds', '1 hour', '2 hours'
 const userName = prompt("Enter your name:");
-let time = prompt("Enter timeout:");
-if (time.indexOf("minute" || "minutes") !== -1) {
-  time = 60 * 1000 * Number.parseInt(time, 10);
-} else if (time.indexOf("second" || "seconds") !== -1) {
-  time = 1000 * Number.parseInt(time, 10);
-} else if (time.indexOf("hour" || "hours") !== -1) {
-  time = 60 * 60 * 1000 * Number.parseInt(time, 10);
-} else {
-  console.log("Pleace, enter a valid value");
-}
-setTimeout(
-  (name) => {
-    if (typeof time === "number") {
-      console.log(`Hi, ${name}!`);
-    }
-  },
-  time,
-  userName
-);
+const timeDelay = prompt("Enter delay:");
 
+function sayHiWithDelay(name, time) {
+  if (time.indexOf("minute" || "minutes") !== -1) {
+    result = 60 * 1000 * Number.parseInt(time, 10);
+    return setTimeout(() => {
+      console.log(`Hi, ${name}!`);
+    }, result);
+  } else if (time.indexOf("second" || "seconds") !== -1) {
+    result = 1000 * Number.parseInt(time, 10);
+    return setTimeout(() => {
+      console.log(`Hi, ${name}!`);
+    }, result);
+  } else if (time.indexOf("hour" || "hours") !== -1) {
+    result = 60 * 60 * 1000 * Number.parseInt(time, 10);
+    return setTimeout(() => {
+      console.log(`Hi, ${name}!`);
+    }, result);
+  } else {
+    return console.log("Pleace, enter a valid value");
+  }
+}
+console.log(sayHiWithDelay(userName, timeDelay));
 // 2. Создать функцию которая будет или сериализировать или десериализировать объект в зависимости от того в какой форме он был передан
 const Obj1 = {
   name: "Bob",
