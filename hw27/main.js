@@ -25,7 +25,6 @@ class Student {
       return acc + curr;
     });
     const averageRating = (addRating / this.rating.length).toFixed(2);
-    console.log(averageRating);
     return averageRating;
   }
 
@@ -57,32 +56,65 @@ class Student {
     const countVisiedLesson = (
       trueInCountLesson.length / countLessons.length
     ).toFixed(2);
-    console.log(countVisiedLesson);
     return countVisiedLesson;
   }
 
   summary() {
     if (this.showAverageRating() > 90 && this.attend() > 0.9) {
-      console.log("Very good!");
+      return "Very good!";
     } else if (this.showAverageRating() < 90 || this.attend() < 0.9) {
-      console.log("Good, but you can better!");
+      return "Good, but you can better!";
     } else if (this.showAverageRating() < 90 && this.attend() < 0.9) {
-      console.log("Very bad!");
+      return "Very bad!";
     }
   }
 }
 
 const studentFirst = new Student("Bob", "Black", 2004);
-studentFirst.showAge();
+
 studentFirst.grades(100);
 studentFirst.grades(99);
 studentFirst.grades(100);
 studentFirst.grades(100);
 studentFirst.grades(95);
+
 studentFirst.present();
 studentFirst.present();
 studentFirst.present();
 studentFirst.present();
 studentFirst.absent();
+
+studentFirst.showAge();
 console.log(studentFirst.showAverageRating());
-studentFirst.summary();
+console.log(studentFirst.summary());
+console.log(studentFirst);
+
+const studentSecond = new Student("Nick", "White", 1999);
+
+studentSecond.grades(100);
+studentSecond.grades(99);
+studentSecond.grades(90);
+
+studentSecond.present();
+studentSecond.absent();
+studentSecond.absent();
+
+studentSecond.showAge();
+console.log(studentSecond.showAverageRating());
+console.log(studentSecond.summary());
+console.log(studentSecond);
+
+const studentThird = new Student("Jane", "Yellow", 2000);
+
+studentThird.grades(100);
+studentThird.grades(100);
+studentThird.grades(100);
+
+studentThird.present();
+studentThird.present();
+studentThird.present();
+
+studentThird.showAge();
+console.log(studentThird.showAverageRating());
+console.log(studentThird.summary());
+console.log(studentThird);
