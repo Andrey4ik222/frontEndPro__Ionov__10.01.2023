@@ -27,9 +27,20 @@ function returnDate(millisec) {
     " " +
     date.getHours() +
     ":" +
-    date.getMinutes();
+    ("0" + date.getMinutes()).slice(-2);
   return fullDate;
 }
 console.log(returnDate(Date.now()));
 
-3;
+// 3. Создать функцию которая принимает миллисекунды и вернет количество времени которое прошло или должно пройти с текущего момента.
+function differenceInTime(millisec) {
+  const atTheMomentTime = Date.now();
+  if (atTheMomentTime > millisec) {
+    return `Прошло ${atTheMomentTime - millisec} миллисекунд`;
+  } else if (atTheMomentTime < millisec) {
+    return `Должно пройти ${millisec - atTheMomentTime} миллисекунд`;
+  } else {
+    return `Ваше время - сейчас!`;
+  }
+}
+console.log(differenceInTime(1633403992));
