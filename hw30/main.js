@@ -41,6 +41,6 @@ class SuperMath {
   }
 }
 
-const example = new SuperMath();
+const exampleInstance = new SuperMath();
 const testObj = { x: 2, y: 4, znak: "+" };
-example.check(testObj);
+exampleInstance.check(testObj);
