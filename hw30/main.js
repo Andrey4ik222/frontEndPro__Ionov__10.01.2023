@@ -1,54 +1,46 @@
 class SuperMath {
-  constructor(x, y, znak) {
-    this.obj = { x: x, y: y, znak: znak };
-  }
-
   check(obj) {
-    const confirmZnak = confirm(
-      `Ви точно хочете зробити ${this.obj.znak} з ${this.obj.x} та ${this.obj.y}?`
-    );
-    if (confirmZnak === false) {
-      const numb1 = +prompt("Ведіть X:");
-      const numb2 = +prompt("Ведіть Y:");
-      const znak = prompt("Ведіть Znak:");
-      this.obj.x = numb1;
-      this.obj.y = numb2;
-      this.znak = znak;
-    }
-    switch (this.obj.znak) {
+    const { x, y, znak } = obj;
+
+    let result;
+
+    switch (znak) {
       case "+":
-        return this.obj.x + this.obj.y;
+        result = x + y;
         break;
       case "-":
-        return this.obj.x + this.obj.y;
+        result = x - y;
         break;
       case "*":
-        return this.obj.x * this.obj.y;
+        result = x * y;
         break;
       case "/":
-        return this.obj.x / this.obj.y;
+        result = x / y;
         break;
       case "%":
-        return this.obj.x % this.obj.y;
+        result = x % y;
         break;
       default:
-        console.log(
-          `Вибачте, але знак ${this.obj.znak} не є математично вірним`
-        );
+        alert(`Вибачте, але дія ${znak} не є математично вірною`);
+        return this.input();
+    }
+    const confirmSign = confirm(`Ви точно хочете зробити ${x} ${znak} ${y}?`);
+
+    if (confirmSign === false) {
+      this.input();
+    } else {
+      console.log(`${x} ${znak} ${y} = ${result}`);
     }
   }
+
+  input() {
+    const x = +prompt("Введіть X:");
+    const y = +prompt("Введіть Y:");
+    const znak = prompt("Введіть дію:");
+    this.check({ x, y, znak });
+  }
 }
-// input() {
-//   if (check === false) {
-//     const numb1 = +prompt("Ведіть X:");
-//     const numb2 = +prompt("Ведіть Y:");
-//     const znak = prompt("Ведіть Znak:");
-//     this.obj.x = numb1;
-//     this.obj.y = numb2;
-//     this.znak = znak;
-//   }
-//   return this.obj;
-// }
-const asd = new SuperMath(3, 5, "+");
-console.log(asd);
-asd.check();
+
+const example = new SuperMath();
+const testObj = { x: 2, y: 4, znak: "+" };
+example.check(testObj);
