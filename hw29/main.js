@@ -75,5 +75,5 @@ hamburger.addTopping(Hamburger.toppingMayo);
 console.log("Calories:", hamburger.calculateCalories());
 console.log("Price:", hamburger.calculatePrice());
 
-hamburger.addTopping(Hamburger.toppingSauce);
+// hamburger.addTopping(Hamburger.toppingSauce);
 console.log("Price with sauce:", hamburger.calculatePrice());
