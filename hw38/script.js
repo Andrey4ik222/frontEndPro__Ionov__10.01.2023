@@ -18,7 +18,7 @@ function previousImage() {
 }
 function showImages(index) {
   const images = document.getElementsByClassName("img");
-  if (index === 9) {
+  if (index === images.length) {
     btnNext.hidden = true;
   } else if (index === 1) {
     btnPrev.hidden = true;
