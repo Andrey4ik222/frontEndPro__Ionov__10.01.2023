@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn {
+  width: 70px;
+  height: 30px;
+  padding: 7px;
+}
+.btn-prev {
+  background-color: lightcoral;
+  border: 0px;
+  border-radius: 20px;
+}
+.btn-next {
+  background-color: lightgreen;
+  border: 0px;
+  border-radius: 20px;
+}
