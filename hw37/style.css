@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  gap: 20px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  padding: 7px;
+  width: 80px;
+  height: 35px;
+}
+.button-google {
+  background-color: white;
+  border: 1px solid;
+  border-radius: 10px;
+}
+.button-youtube {
+  background-color: red;
+  border: 0px;
+  border-radius: 10px;
+}
