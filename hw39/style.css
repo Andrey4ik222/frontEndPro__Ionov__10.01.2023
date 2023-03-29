@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: antiquewhite;
+}
+.btn {
+  background-color: antiquewhite;
+  border: 0px;
+  padding: 0px;
+  border-radius: 8px;
+}
+
+.wrapper {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.emoji {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 65px;
+  width: auto;
+}
+.counter {
+  margin-top: 5px;
+}
+.btn {
+  font-size: 24px;
+}
