@@ -152,7 +152,6 @@ function createInfo() {
 function showInfo(event) {
   for (let i = 0; i < items.length; i++) {
     const elem = document.getElementById(i);
-    console.log(elem);
     elem.style.display =
       event.target.classList.contains(`item-${i}`) ||
       event.target.parentNode.classList.contains(`item-${i}`)
