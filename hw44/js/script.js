@@ -62,6 +62,8 @@ const items = [
 const listCategories = document.querySelector(".list-categories");
 const listProducts = document.querySelector(".list-products");
 const infoProducts = document.querySelector(".info-products");
+const modal = document.querySelector(".modal");
+const buttonClose = document.querySelector(".close");
 
 function createCategories() {
   categories.forEach(({ id, name, category }) => {
@@ -108,6 +110,7 @@ function chooseItem(event) {
   const target = event.target;
 
   for (let item of items) {
+    console.log(item);
     if (target.classList.contains("iphone-category")) {
       item.style.display = item.classList.contains("item-iphone")
         ? "flex"
@@ -150,15 +153,40 @@ function createInfo() {
 function showInfo(event) {
   for (let i = 0; i < items.length; i++) {
     const elem = document.getElementById(i);
-    console.log(elem);
     elem.style.display = event.target.classList.contains(`item-${i}`)
       ? "block"
       : "none";
   }
 }
+
+function buyItem(event) {
+  if (event.target.classList.contains("product-item__button")) {
+    modal.style.display = "flex";
+  }
+}
+function hideElements() {
+  const items = document.querySelectorAll(".product-item");
+  const itemsInfo = document.querySelectorAll(".info-products-item");
+  items.forEach((elem) => {
+    elem.style.display = "none";
+  });
+  itemsInfo.forEach((elem) => {
+    elem.style.display = "none";
+  });
+}
+
+function closeModal() {
+  modal.style.display = "none";
+  hideElements();
+}
+
 window.addEventListener("load", createCategories);
 window.addEventListener("load", createProduct);
 window.addEventListener("load", createInfo);
 
 listCategories.addEventListener("click", chooseItem);
 listProducts.addEventListener("click", showInfo);
+infoProducts.addEventListener("click", buyItem);
+
+modal.addEventListener("click", closeModal);
+buttonClose.addEventListener("click", closeModal);
