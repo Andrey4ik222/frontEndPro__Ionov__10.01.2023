@@ -78,6 +78,7 @@ function createProduct() {
   items.forEach(({ id, name, description, price, category }) => {
     const item = document.createElement("div");
     item.classList.add("product-item");
+    item.classList.add(`item-${id}`);
     listProducts.append(item);
     if (category === "iphone") {
       item.classList.add("item-iphone");
@@ -94,7 +95,6 @@ function createProduct() {
 
     const itemName = document.createElement("h2");
     itemName.classList.add("product-item__name");
-    itemName.classList.add(`item-${id}`);
     item.append(itemName);
     itemName.innerHTML = name;
 
@@ -152,9 +152,12 @@ function createInfo() {
 function showInfo(event) {
   for (let i = 0; i < items.length; i++) {
     const elem = document.getElementById(i);
-    elem.style.display = event.target.classList.contains(`item-${i}`)
-      ? "block"
-      : "none";
+    console.log(elem);
+    elem.style.display =
+      event.target.classList.contains(`item-${i}`) ||
+      event.target.parentNode.classList.contains(`item-${i}`)
+        ? "block"
+        : "none";
   }
 }
 

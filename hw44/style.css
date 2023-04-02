@@ -10,6 +10,7 @@
   height: 100vh;
 }
 .list-products {
+  margin: 0 16px;
   width: 40%;
 }
 .categories-item {
@@ -25,14 +26,14 @@
   margin: 0;
 }
 .product-item {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 35px;
   border-radius: 8px;
-}
-.product-item__name {
-  cursor: pointer;
+  border: 1px solid;
+  width: 80%;
 }
 .product-item__image {
   width: 35%;
