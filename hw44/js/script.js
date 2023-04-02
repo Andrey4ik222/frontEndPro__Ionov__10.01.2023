@@ -110,7 +110,6 @@ function chooseItem(event) {
   const target = event.target;
 
   for (let item of items) {
-    console.log(item);
     if (target.classList.contains("iphone-category")) {
       item.style.display = item.classList.contains("item-iphone")
         ? "flex"
