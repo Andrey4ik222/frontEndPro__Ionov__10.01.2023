@@ -104,3 +104,71 @@
   cursor: pointer;
   align-self: flex-end;
 }
+
+.form-wrapper {
+  display: none;
+}
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form-name {
+  display: flex;
+  flex-direction: column;
+}
+.form-surname {
+  display: flex;
+  flex-direction: column;
+}
+.form-patronymic {
+  display: flex;
+  flex-direction: column;
+}
+.form-country {
+  display: flex;
+  flex-direction: column;
+}
+.form-country__title {
+  display: flex;
+  flex-direction: column;
+}
+.form-post-store {
+  display: flex;
+  flex-direction: column;
+}
+.pay-info__title {
+  display: flex;
+  flex-direction: column;
+}
+.form-count-protuct {
+  display: flex;
+  flex-direction: column;
+}
+.form-comment {
+  display: flex;
+  flex-direction: column;
+}
+#comment {
+  max-width: 230px;
+  max-height: 100px;
+}
+label {
+  margin-bottom: 10px;
+}
+.btn-submit {
+  margin-bottom: 8px;
+  cursor: pointer;
+  width: 200px;
+  height: 30px;
+  background-color: rgb(86, 179, 86);
+  border: 0;
+  border-radius: 8px;
+}
+.form-title {
+  font-size: large;
+}
+.validation-error-messege {
+  max-width: 315px;
+  color: red;
+}

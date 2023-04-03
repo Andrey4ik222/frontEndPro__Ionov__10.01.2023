@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Інтернет-магазин</title>
+</head>
+
+<body>
+  <main class="main">
+    <section class="list-categories">
+
+    </section>
+    <section class="list-products">
+
+    </section>
+
+    <section class="info-products">
+      <div class="form-wrapper">
+        <h2 class="form-title">Оформлення замовлення</h2>
+        <form class="order-form">
+          <div class="form-name">
+            <label for="name">Ім'я</label>
+            <input type="text" id="name">
+          </div>
+
+          <div class="form-surname">
+            <label for="surname">Прізвище</label>
+            <input type="text" id="surmane">
+          </div>
+
+          <div class="form-patronymic">
+            <label for="patronymic">По-батькові</label>
+            <input type="text" id="patronymic">
+          </div>
+
+          <div class="form-country">
+            <p class="form-country__title">Виберіть місто доставки:</p>
+            <select name="country" id="country">
+              <option value="dnipro" selected>Дніпро</option>
+              <option value="kyiv">Київ</option>
+              <option value="kharkiv">Харків</option>
+              <option value="odesa">Одеса</option>
+              <option value="lviv">Львів</option>
+            </select>
+          </div>
+
+          <div class="form-post-store">
+            <label for="post-store">Введіть номер складу нової почти:</label>
+            <input type="number" id="post-store" value="1">
+          </div>
+
+          <div class="pay-info__wrapper">
+            <p class="pay-info__title">Виберіть спосіб оплати:</p>
+
+            <input type="radio" id="card" name="pay" value="card" checked>
+            <label for="card">Карткою</label>
+
+            <input type="radio" id="cash" name="pay" value="cash">
+            <label for="cash">При отриманні</label>
+          </div>
+
+          <div class="form-count-protuct">
+            <label for="countProd">Введіть кількість товару:</label>
+            <input type="number" id="countProd" name="countProd" value="1">
+          </div>
+
+          <div class="form-comment">
+            <label for="comment">Коментарі до замовлення</label>
+            <textarea name="comment" id="comment" cols="20" rows="5"></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Підтвердиди замовлення</button>
+        </form>
+      </div>
+      <div class="order-details"></div>
+    </section>
+
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close">&#10006</span>
+        <h2 class="modal-title">Покупка завершена!</h2>
+      </div>
+    </div>
+
+    </div>
+  </main>
+  <script type="module" src="./js/script.js"></script>
+</body>
+
+</html>
