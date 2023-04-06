@@ -172,3 +172,43 @@ label {
   max-width: 315px;
   color: red;
 }
+.btn-orders {
+  margin-bottom: 8px;
+  cursor: pointer;
+  width: 150px;
+  height: 30px;
+  background-color: yellowgreen;
+  border: 0;
+  border-radius: 8px;
+}
+.btn-basket {
+  margin-bottom: 8px;
+  cursor: pointer;
+  width: 150px;
+  height: 30px;
+  background-color: yellowgreen;
+  border: 0;
+  border-radius: 8px;
+}
+.orders-wrapper {
+  display: none;
+}
+.close-orders {
+  margin-bottom: 8px;
+  cursor: pointer;
+  width: 150px;
+  height: 30px;
+  background-color: red;
+  border: 0;
+  border-radius: 8px;
+}
+.btn-cancel-order {
+  padding: auto;
+  margin-bottom: 8px;
+  cursor: pointer;
+  width: 20px;
+  height: 15px;
+  background-color: red;
+  border: 0;
+  border-radius: 8px;
+}

@@ -74,7 +74,7 @@ function createCategories() {
     listCategories.append(categoriesItem);
   });
 }
-export function createProduct() {
+function createProduct() {
   items.forEach(({ id, name, description, price, category }) => {
     const item = document.createElement("div");
     item.classList.add("product-item");
@@ -103,7 +103,10 @@ export function createProduct() {
     item.append(itemPrice);
     itemPrice.innerHTML = `${price} ₴`;
   });
-  return document.querySelectorAll(".product-item");
+  return (
+    document.querySelectorAll(".btn-basket"),
+    document.querySelectorAll(".product-item")
+  );
 }
 
 function chooseItem(event) {
@@ -158,8 +161,9 @@ function showInfo(event) {
   for (let i = 0; i < items.length; i++) {
     const elem = document.getElementById(i);
     if (
-      event.target.classList.contains(`item-${i}`) ||
-      event.target.parentNode.classList.contains(`item-${i}`)
+      (event.target.classList.contains(`item-${i}`) ||
+        event.target.parentNode.classList.contains(`item-${i}`)) &&
+      !event.target.classList.contains("btn-basket")
     ) {
       elem.style.display = "block";
     } else {
@@ -176,7 +180,7 @@ window.addEventListener("load", createInfo);
 listCategories.addEventListener("click", chooseItem);
 listProducts.addEventListener("click", showInfo);
 
-// Homework 41
+// ========================== Homework 41
 
 const formWrapper = document.querySelector(".form-wrapper");
 
@@ -242,17 +246,24 @@ function validationForm(event) {
     const btnBuyId3 = document.querySelector(".buy-btn--3");
     const btnBuyId4 = document.querySelector(".buy-btn--4");
 
+    const buttonSubmitForm = document.querySelector(".btn-submit");
+
     let nameProduckt = "";
     if (btnBuyId0.parentElement.style.display === "block") {
       nameProduckt += items[0].name;
+      buttonSubmitForm.classList.add("buy-item--0");
     } else if (btnBuyId1.parentElement.style.display === "block") {
       nameProduckt += items[1].name;
+      buttonSubmitForm.classList.add("buy-item--1");
     } else if (btnBuyId2.parentElement.style.display === "block") {
       nameProduckt += items[2].name;
+      buttonSubmitForm.classList.add("buy-item--2");
     } else if (btnBuyId3.parentElement.style.display === "block") {
       nameProduckt += items[3].name;
+      buttonSubmitForm.classList.add("buy-item--3");
     } else if (btnBuyId4.parentElement.style.display === "block") {
       nameProduckt += items[4].name;
+      buttonSubmitForm.classList.add("buy-item--4");
     }
 
     modalContent.insertAdjacentHTML(
@@ -318,16 +329,13 @@ function openForm(event) {
   }
 }
 
-function closeModal(event) {
-  if (event.target === buttonClose || event.target === modal) {
-    modal.style.display = "none";
-    orderForm.submit();
-  }
-}
+const now = new Date();
+const year = now.getFullYear();
+const month = ("0" + (now.getMonth() + 1)).slice(-2);
+const day = ("0" + now.getDate()).slice(-2);
+const formattedDate = `${year}-${month}-${day}`;
 
 infoProducts.addEventListener("click", openForm);
-
-modal.addEventListener("click", closeModal);
 
 buttonSubmit.addEventListener("click", function (event) {
   if (modal.style.display === "flex") {
@@ -335,3 +343,213 @@ buttonSubmit.addEventListener("click", function (event) {
     orderForm.submit();
   } else return;
 });
+
+function closeModal(event) {
+  if (event.target === buttonClose || event.target === modal) {
+    modal.style.display = "none";
+    orderForm.submit();
+  }
+}
+modal.addEventListener("click", closeModal);
+
+// ========================== Homework 43
+
+const buttonOrders = document.querySelector(".btn-orders");
+const ordersWrapper = document.querySelector(".orders-wrapper");
+const closeOrdersButton = document.querySelector(".close-orders");
+const ordersDetails = document.querySelector(".orders-description");
+
+const orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+function addItemToOrderList() {
+  if (buttonSubmit.classList.contains("buy-item--0")) {
+    orders.push({
+      name: items[0].name,
+      price: items[0].price,
+      id: items[0].id,
+      data: formattedDate,
+      nameClient: namelable.value,
+      surnameClient: surnameLable.value,
+      postNumber: postStore.value,
+      countProduct: countProduct.value,
+      payInfo: payInfo.value,
+    });
+    localStorage.setItem("orders", JSON.stringify(orders));
+    return orders;
+  } else if (buttonSubmit.classList.contains("buy-item--1")) {
+    orders.push({
+      name: items[1].name,
+      price: items[1].price,
+      id: items[1].id,
+      data: formattedDate,
+      nameClient: namelable.value,
+      surnameClient: surnameLable.value,
+      postNumber: postStore.value,
+      countProduct: countProduct.value,
+      payInfo: payInfo.value,
+    });
+    localStorage.setItem("orders", JSON.stringify(orders));
+    return orders;
+  } else if (buttonSubmit.classList.contains("buy-item--2")) {
+    orders.push({
+      name: items[2].name,
+      price: items[2].price,
+      id: items[2].id,
+      data: formattedDate,
+      nameClient: namelable.value,
+      surnameClient: surnameLable.value,
+      postNumber: postStore.value,
+      countProduct: countProduct.value,
+      payInfo: payInfo.value,
+    });
+    localStorage.setItem("orders", JSON.stringify(orders));
+    return orders;
+  } else if (buttonSubmit.classList.contains("buy-item--3")) {
+    orders.push({
+      name: items[3].name,
+      price: items[3].price,
+      id: items[3].id,
+      data: formattedDate,
+      nameClient: namelable.value,
+      surnameClient: surnameLable.value,
+      postNumber: postStore.value,
+      countProduct: countProduct.value,
+      payInfo: payInfo.value,
+    });
+    localStorage.setItem("orders", JSON.stringify(orders));
+    return orders;
+  } else if (buttonSubmit.classList.contains("buy-item--4")) {
+    orders.push({
+      name: items[4].name,
+      price: items[4].price,
+      id: items[4].id,
+      data: formattedDate,
+      nameClient: namelable.value,
+      surnameClient: surnameLable.value,
+      postNumber: postStore.value,
+      countProduct: countProduct.value,
+      payInfo: payInfo.value,
+    });
+    localStorage.setItem("orders", JSON.stringify(orders));
+    return orders;
+  }
+}
+
+function addToOrders(event) {
+  const target = event.target;
+  if (target.classList.contains("buy-btn--0")) {
+    orders.push({
+      name: items[0].name,
+      price: items[0].price,
+      id: items[0].id,
+    });
+    localStorage.setItem("orders", JSON.stringify(orders));
+    return orders;
+  } else if (target.classList.contains("buy-btn--1")) {
+    orders.push({
+      name: items[1].name,
+      price: items[1].price,
+      id: items[1].id,
+    });
+    localStorage.setItem("orders", JSON.stringify(orders));
+    return orders;
+  } else if (target.classList.contains("buy-btn--2")) {
+    orders.push({
+      name: items[2].name,
+      price: items[2].price,
+      id: items[2].id,
+    });
+    localStorage.setItem("orders", JSON.stringify(orders));
+    return orders;
+  } else if (target.classList.contains("buy-btn--3")) {
+    orders.push({
+      name: items[3].name,
+      price: items[3].price,
+      id: items[3].id,
+    });
+    localStorage.setItem("orders", JSON.stringify(orders));
+    return orders;
+  } else if (target.classList.contains("buy-btn--4")) {
+    orders.push({
+      name: items[4].name,
+      price: items[4].price,
+      id: items[4].id,
+    });
+    localStorage.setItem("orders", JSON.stringify(orders));
+    return orders;
+  }
+}
+
+function displayOrders() {
+  buttonOrders.style.display = "none";
+  listCategories.style.display = "none";
+  listProducts.style.display = "none";
+  infoProducts.style.display = "none";
+  ordersWrapper.style.display = "block";
+
+  const orderInLocalStorage = localStorage.getItem("orders");
+  const ordersInObj = JSON.parse(orderInLocalStorage);
+  if (orders.length == 0) {
+    return;
+  }
+  ordersInObj.forEach((order) => {
+    const item = items.find((item) => item.id === order.id);
+    const itemOrderWrapper = document.createElement("div");
+    const orderDateils = document.createElement("div");
+    orderDateils.classList.add("orders-dateils");
+
+    const cancelOrderButton = document.createElement("button");
+    cancelOrderButton.classList.add("btn-cancel-order");
+    cancelOrderButton.classList.add(`${order.id}-product`);
+    cancelOrderButton.textContent = "✖";
+
+    const itemOrder = document.createElement("p");
+    itemOrder.classList.add(`info-order-product-${order.id}`);
+    itemOrder.classList.add("info-order-product-all");
+
+    itemOrder.textContent = `Товар: ${item.name}. Ціна товару: ${item.price} грн. Дата замовлення: ${order.data}. Ім'я замовника: ${order.nameClient}. Прізвище замовника: ${order.surnameClient}. Почтове відділення номер ${order.postNumber}. Кількість товару: ${order.countProduct}. Оплата ${order.payInfo}`;
+
+    orderDateils.append(itemOrder);
+    itemOrderWrapper.append(orderDateils);
+    itemOrderWrapper.append(cancelOrderButton);
+    ordersDetails.append(itemOrderWrapper);
+  });
+}
+
+function deleteItemInOrders(event) {
+  const target = event.target;
+  if (target.classList.contains("0-product")) {
+    const updatedOrders = orders.filter((order) => order.id !== 0);
+    const updatedOrdersJSON = JSON.stringify(updatedOrders);
+    localStorage.setItem("orders", updatedOrdersJSON);
+    location.reload();
+  } else if (target.classList.contains("1-product")) {
+    const updatedOrders = orders.filter((order) => order.id !== 1);
+    const updatedOrdersJSON = JSON.stringify(updatedOrders);
+    localStorage.setItem("orders", updatedOrdersJSON);
+    location.reload();
+  } else if (target.classList.contains("2-product")) {
+    const updatedOrders = orders.filter((order) => order.id !== 2);
+    const updatedOrdersJSON = JSON.stringify(updatedOrders);
+    localStorage.setItem("orders", updatedOrdersJSON);
+    location.reload();
+  } else if (target.classList.contains("3-product")) {
+    const updatedOrders = orders.filter((order) => order.id !== 3);
+    const updatedOrdersJSON = JSON.stringify(updatedOrders);
+    localStorage.setItem("orders", updatedOrdersJSON);
+    location.reload();
+  } else if (target.classList.contains("4-product")) {
+    const updatedOrders = orders.filter((order) => order.id !== 4);
+    const updatedOrdersJSON = JSON.stringify(updatedOrders);
+    localStorage.setItem("orders", updatedOrdersJSON);
+    location.reload();
+  }
+}
+orderForm.addEventListener("submit", addItemToOrderList);
+
+ordersWrapper.addEventListener("click", deleteItemInOrders);
+closeOrdersButton.addEventListener("click", () => {
+  location.reload();
+});
+
+buttonOrders.addEventListener("click", displayOrders);
