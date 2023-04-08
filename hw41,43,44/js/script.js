@@ -435,51 +435,6 @@ function addItemToOrderList() {
   }
 }
 
-function addToOrders(event) {
-  const target = event.target;
-  if (target.classList.contains("buy-btn--0")) {
-    orders.push({
-      name: items[0].name,
-      price: items[0].price,
-      id: items[0].id,
-    });
-    localStorage.setItem("orders", JSON.stringify(orders));
-    return orders;
-  } else if (target.classList.contains("buy-btn--1")) {
-    orders.push({
-      name: items[1].name,
-      price: items[1].price,
-      id: items[1].id,
-    });
-    localStorage.setItem("orders", JSON.stringify(orders));
-    return orders;
-  } else if (target.classList.contains("buy-btn--2")) {
-    orders.push({
-      name: items[2].name,
-      price: items[2].price,
-      id: items[2].id,
-    });
-    localStorage.setItem("orders", JSON.stringify(orders));
-    return orders;
-  } else if (target.classList.contains("buy-btn--3")) {
-    orders.push({
-      name: items[3].name,
-      price: items[3].price,
-      id: items[3].id,
-    });
-    localStorage.setItem("orders", JSON.stringify(orders));
-    return orders;
-  } else if (target.classList.contains("buy-btn--4")) {
-    orders.push({
-      name: items[4].name,
-      price: items[4].price,
-      id: items[4].id,
-    });
-    localStorage.setItem("orders", JSON.stringify(orders));
-    return orders;
-  }
-}
-
 function displayOrders() {
   buttonOrders.style.display = "none";
   listCategories.style.display = "none";
