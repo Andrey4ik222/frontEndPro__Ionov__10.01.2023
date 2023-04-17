@@ -1,18 +1,20 @@
-const url =
-  "http://api.openweathermap.org/data/2.5/weather?q=LVIV&units=metric&APPID=5d066958a60d315387d9492393935c19";
+const cityWhereToShowWeather = "Lviv";
+const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityWhereToShowWeather}&units=metric&APPID=5d066958a60d315387d9492393935c19`;
 
-fetch(url)
-  .then((response) => {
-    console.log(response.ok);
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return response.json();
-  })
-  .then((data) => showWeather(data))
-  .catch((error) => {
-    console.error(error);
-  });
+function getDataFromAPI(url) {
+  fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => showWeather(data))
+    .catch((error) => {
+      console.error(error);
+    });
+}
+getDataFromAPI(url);
 
 function showWeather(data) {
   const city = data.name;
