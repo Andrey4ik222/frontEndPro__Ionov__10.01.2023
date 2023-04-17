@@ -9,35 +9,34 @@ function getDataFromAPI(url) {
       }
       return response.json();
     })
-    .then((data) => showWeather(data))
+    .then((data) => {
+      showWeather(data);
+    })
     .catch((error) => {
-      console.error(error);
+      console.error("Error:", error);
     });
 }
 getDataFromAPI(url);
 
 function showWeather(data) {
-  const city = data.name;
-  const temp = data.main.temp;
-  const pressure = data.main.pressure;
-  const description = data.weather[0].description;
-  const humidity = data.main.humidity;
-  const speedWind = data.wind.speed;
-  const degWind = data.wind.deg;
-  const iconCode = data.weather[0].icon;
+  const {
+    name,
+    main: { temp, pressure, humidity },
+    weather: [{ description, icon }],
+    wind: { speed, deg },
+  } = data;
 
-  document.getElementById("city").innerHTML = `City: ${city}`;
-  document.getElementById("temp").innerHTML = `Temperature: ${temp}°C`;
-  document.getElementById("pressure").innerHTML = `Pressure: ${pressure} mm Hg`;
-  document.getElementById(
-    "description"
-  ).innerHTML = `Description: ${description}`;
-  document.getElementById("humidity").innerHTML = `Humidity: ${humidity}%`;
-  document.getElementById(
-    "speed-wind"
-  ).innerHTML = `Wind speed: ${speedWind}m/s`;
-  document.getElementById("deg-wind").innerHTML = `Wind direction: ${degWind}°`;
+  setInnerHTML("city", `City: ${name}`);
+  setInnerHTML("temp", `Temperature: ${temp}°C`);
+  setInnerHTML("pressure", `Pressure: ${pressure} mm Hg`);
+  setInnerHTML("description", `Description: ${description}`);
+  setInnerHTML("humidity", `Humidity: ${humidity}%`);
+  setInnerHTML("speed-wind", `Wind speed: ${speed}m/s`);
+  setInnerHTML("deg-wind", `Wind direction: ${deg}°`);
   document
     .getElementById("icon")
-    .setAttribute("src", `http://openweathermap.org/img/w/${iconCode}.png`);
+    .setAttribute("src", `http://openweathermap.org/img/w/${icon}.png`);
+}
+function setInnerHTML(id, text) {
+  document.getElementById(id).innerHTML = text;
 }
